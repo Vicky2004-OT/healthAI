@@ -2,10 +2,12 @@ import os
 import requests
 from dotenv import load_dotenv
 
+# Load .env variables
 load_dotenv()
 
-HF_API_TOKEN = os.getenv("REMOVED")
-HF_MODEL_ID = os.getenv("Mistral‑Small‑3.2‑24B‑Instruct‑2506")
+# ✅ These should match variable names in your `.env` or Streamlit secrets
+HF_API_TOKEN = os.getenv("HF_API_TOKEN")
+HF_MODEL_ID = os.getenv("HF_MODEL_ID")
 
 def query_model(prompt):
     if not HF_API_TOKEN or not HF_MODEL_ID:
