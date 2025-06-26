@@ -1,13 +1,10 @@
+import streamlit as st
 import os
 import requests
-from dotenv import load_dotenv
 
-# Load .env variables
-load_dotenv()
-
-# ✅ These should match variable names in your `.env` or Streamlit secrets
-HF_API_TOKEN = os.getenv("HF_API_TOKEN")
-HF_MODEL_ID = os.getenv("HF_MODEL_ID")
+# ✅ Load secrets from Streamlit's secrets manager
+HF_API_TOKEN = st.secrets["HF_API_TOKEN"]
+HF_MODEL_ID = st.secrets["HF_MODEL_ID"]
 
 def query_model(prompt):
     if not HF_API_TOKEN or not HF_MODEL_ID:
